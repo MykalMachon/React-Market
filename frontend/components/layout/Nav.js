@@ -1,7 +1,19 @@
 import Link from 'next/link';
+import styled from 'styled-components';
+
+const NavStyles = styled.nav`
+  ul {
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    li {
+    }
+  }
+`;
 
 const Nav = () => (
-  <nav>
+  <NavStyles>
     <ul>
       <li>
         <Link href="/products">
@@ -24,7 +36,7 @@ const Nav = () => (
         </Link>
       </li>
     </ul>
-  </nav>
+  </NavStyles>
 );
 
 export default Nav;
