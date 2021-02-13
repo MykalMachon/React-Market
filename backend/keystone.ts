@@ -8,6 +8,8 @@ import {
 } from '@keystone-next/keystone/session';
 
 import { User } from './schemas/User';
+import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone-react-market';
@@ -42,12 +44,13 @@ export default withAuth(
     },
     lists: createSchema({
       User,
+      Product,
+      ProductImage,
     }),
     ui: {
-      isAccessAllowed: ({ session }) => {
+      isAccessAllowed: ({ session }) =>
         // only return access to those signed in
-        return !!session?.data;
-      },
+        !!session?.data,
     },
     session: withItemData(statelessSessions(sessionConfig), {
       User: `id`,
